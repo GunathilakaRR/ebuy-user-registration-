@@ -28,10 +28,17 @@
                 <input class="input-fields" type="password" name="password" placeholder="Enter your password">
                 <input class="input-fields" type="password" name="cpassword" placeholder="confirm your password">
                 
-                <input type="submit" name="submit" value="REGISTER" class="form-btn">
+                <input type="submit" name="submit" value="REGISTER" class="form-btn" onclick="message();">
                 <p>already have an account? <a href="#">log in now</a> </p>
             </form>
     </div>
+
+    <script>
+        function message(){
+            alert ("Successfull Registered !");
+            return true;
+        }
+    </script>
     
      
 </body>
@@ -54,7 +61,8 @@
         $query = "INSERT INTO users(name,address,email,password,cPassword) VALUES('$name','$address','$email','$password','$cpassword')";
 
         if(mysqli_query($conn,$query)){
-            echo "inserted successfully";
+            header("Location:register.php");
+            exit;
         }
 
 
