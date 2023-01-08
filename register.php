@@ -14,29 +14,45 @@
 </head>
 <body>
 
+    
+<!--------------- nav bar ---------------->
     <div class="nav">
         <p> BLOSSOM</p>
     </div>
     
+<!-- -----------message box ----------------------->
+    <!-- <p class="msg">Successfully Registered</p> -->
+
     <div class="container">
         
-            <form action="register.php" method="post">
+            <form onsubmit="return validate();" action="register.php" method="post">
                 <h2>User Register</h2>
-                <input class="input-fields" type="text" name="name" placeholder="Enter your name">
-                <input class="input-fields" type="text" name="address" placeholder="Enter your address">
-                <input class="input-fields" type="email" name="email" placeholder="Enter your email">
-                <input class="input-fields" type="password" name="password" placeholder="Enter your password">
-                <input class="input-fields" type="password" name="cpassword" placeholder="confirm your password">
+                <input id="userName" class="input-fields" type="text" name="name" placeholder="Enter your name" >
+                <input id="address" class="input-fields" type="text" name="address" placeholder="Enter your address">
+                <input id="email" class="input-fields" type="email" name="email" placeholder="Enter your email">
+                <input id="password" class="input-fields" type="password" name="password" placeholder="Enter your password">
+                <input id="cpassword" class="input-fields" type="password" name="cpassword" placeholder="confirm your password">
                 
-                <input type="submit" name="submit" value="REGISTER" class="form-btn" onclick="message();">
+                <input type="submit" name="submit" value="REGISTER" class="form-btn" >
                 <p>already have an account? <a href="#">log in now</a> </p>
             </form>
     </div>
 
     <script>
-        function message(){
-            alert ("Successfull Registered !");
-            return true;
+
+        function validate(){
+            var userName = document.getElementById("userName");
+            var address = document.getElementById("address");
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var cpassword = document.getElementById("cpassword");
+
+            if(userName.value == "" || address.value == "" || email.value == "" || password.value == "" || cpassword.value == ""){
+                alert("Please fill out all the input fields");
+                return false;
+            }else{
+                true;
+            }
         }
     </script>
     
@@ -67,8 +83,15 @@
 
 
     }
-
-
 ?>
+
+
+
+
+
+
+
+
+
 
 
